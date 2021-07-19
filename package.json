@@ -1,0 +1,25 @@
+{
+  "name": "iso-3166-fetcher",
+  "version": "0.0.1",
+  "description": "Fetches ISO 3166 country codes from https://www.iso.org/obp/ui/#search",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takuma7/iso-3166-fetcher.git"
+  },
+  "keywords": [
+    "countries",
+    "iso-3166",
+    "country",
+    "codes"
+  ],
+  "author": "takuma7",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/takuma7/iso-3166-fetcher/issues"
+  },
+  "homepage": "https://github.com/takuma7/iso-3166-fetcher#readme"
+}
