@@ -7,5 +7,6 @@ module.exports = {
   rules: {
     'no-console': 'off',
     '@typescript-eslint/no-shadow': 'off',
+    'import/prefer-default-export': 'off',
   },
 }

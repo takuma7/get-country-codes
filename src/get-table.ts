@@ -1,47 +1,10 @@
-import fs from 'fs'
-import path from 'path'
-
 import puppeteer from 'puppeteer'
-import ora from 'ora'
-import csvStringify from 'csv-stringify/lib/sync'
 
-const run = async <T = unknown>(
-  text: string,
-  promise: Promise<T>,
-  options?: {
-    succeedText?: string | ((args: { result: T; text: string }) => string)
-    failText?: string | ((args: { error: Error; text: string }) => string)
-  }
-): Promise<T> => {
-  const { succeedText, failText } = options || {}
-  const spinner = ora(text).start()
-  try {
-    const result = await promise
-    spinner.succeed(
-      // eslint-disable-next-line no-nested-ternary
-      typeof succeedText === 'undefined'
-        ? text
-        : typeof succeedText === 'function'
-        ? succeedText({ result, text })
-        : succeedText
-    )
-    return result
-  } catch (error) {
-    spinner.fail(
-      // eslint-disable-next-line no-nested-ternary
-      typeof failText === 'undefined'
-        ? text
-        : typeof failText === 'function'
-        ? failText({ error, text })
-        : failText
-    )
-    throw error
-  }
-}
+import { run } from './run'
 
 const TABLE_SELECTOR = 'div.v-grid-tablewrapper table'
 
-;(async () => {
+export const getTable = async () => {
   const browser = await run('Launch browser', puppeteer.launch())
   try {
     const page = await run(
@@ -112,26 +75,11 @@ const TABLE_SELECTOR = 'div.v-grid-tablewrapper table'
         },
       }
     )
-    await run(
-      'Writing to csv file',
-      (async () => {
-        const table = [headers, ...rows]
-        const csv = csvStringify(table)
-        const fileName = `iso-3166-${Date.now()}.csv`
-        fs.mkdirSync(path.resolve(__dirname, 'out'), { recursive: true })
-        fs.writeFileSync(path.resolve(__dirname, 'out', fileName), csv)
-        return fileName
-      })(),
-      {
-        succeedText: ({ result, text }) => {
-          return `${text}... Wrote to ./out/${result}`
-        },
-      }
-    )
+    return { headers, rows }
   } catch (error) {
     console.error(error)
     throw error
   } finally {
-    await browser.close()
+    browser.close()
   }
-})()
+}
