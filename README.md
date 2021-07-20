@@ -8,7 +8,7 @@ This repository runs the command via GitHub Actions on push and schedule (monthl
 
 Installation:
 ```sh
-pnpm add --global iso-3166-fetcher
+pnpm add --global get-country-codes
 ```
 
 Usage:

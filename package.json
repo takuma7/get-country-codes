@@ -1,7 +1,7 @@
 {
-  "name": "iso-3166-fetcher",
-  "version": "0.0.5",
-  "description": "Fetches ISO 3166 country codes from https://www.iso.org/obp/ui/#search",
+  "name": "get-country-codes",
+  "version": "0.0.0",
+  "description": "Fetches ISO 3166-1 country codes from https://www.iso.org/obp/ui/#search",
   "main": "index.js",
   "scripts": {
     "start": "NODE_OPTIONS='--trace-warnings --trace-deprecation' ts-node src/cli.ts",
@@ -12,20 +12,29 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/takuma7/iso-3166-fetcher.git"
+    "url": "git+https://github.com/takuma7/get-country-codes.git"
   },
   "keywords": [
     "countries",
     "iso-3166",
-    "country",
+    "iso-3166-1",
+    "iso-3166-1-alpha-2",
+    "iso-3166-1-alpha-3",
+    "iso-3166-1-numeric",
+    "ISO 3166",
+    "ISO 3166-1",
+    "ISO 3166-1 Alpha-2",
+    "ISO 3166-1 Alpha-3",
+    "ISO 3166-1 Numeric",
+    "country codes",
     "codes"
   ],
   "author": "takuma7",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/takuma7/iso-3166-fetcher/issues"
+    "url": "https://github.com/takuma7/get-country-codes/issues"
   },
-  "homepage": "https://github.com/takuma7/iso-3166-fetcher#readme",
+  "homepage": "https://github.com/takuma7/get-country-codes#readme",
   "dependencies": {
     "csv-stringify": "^5.6.2",
     "ora": "^5.4.1",
