@@ -13,7 +13,7 @@ pnpm add --global get-country-codes
 
 Usage:
 ```sh
-get-country-codes -o ./out/iso-3166-1.csv
+get-country-codes -o ./out/iso-3166-1.csv # You can specify the output path (default: ./iso-3166-1.csv)
 ```
 
 ## API
