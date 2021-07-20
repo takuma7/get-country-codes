@@ -9,9 +9,9 @@ import { run } from './run'
 
 const argv = yargs(hideBin(process.argv))
   .options({
-    'output-dir': {
+    output: {
       alias: 'o',
-      default: '.',
+      default: `iso-3166.csv`,
       type: 'string',
     },
   })
@@ -21,12 +21,12 @@ const argv = yargs(hideBin(process.argv))
   const { headers, rows } = await getTable()
   const table = [headers, ...rows]
 
-  let outputDir = argv['output-dir']
-  if (!path.isAbsolute(outputDir)) {
-    outputDir = path.resolve(process.cwd(), outputDir)
+  let outputPath = argv.output
+  if (!path.isAbsolute(outputPath)) {
+    outputPath = path.resolve(process.cwd(), outputPath)
   }
 
-  await run('Writing csv', writeCsv(outputDir, table), {
+  await run('Writing csv', writeCsv(outputPath, table), {
     succeedText: ({ result, text }) => {
       return `${text}... Wrote to ${result}`
     },
