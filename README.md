@@ -1,17 +1,24 @@
 # ISO-3166 fetcher
 
-Fetches ISO 3166 country codes from [the ISO website](https://www.iso.org/obp/ui/#search) and writes to a CSV file.
+Fetches the canonical ISO 3166 country codes from [ISO's website](https://www.iso.org/obp/ui/#search) and writes to a CSV file.
 
-### CLI
+This repository runs the command via GitHub Actions on push and schedule (monthly). The resulting CSV file is then pushed to [`takuma7/iso-3166-csv`](https://github.com/takuma7/iso-3166-csv) for easy use.
 
+## CLI
+
+Installation:
 ```sh
 pnpm add --global iso-3166-fetcher
-get-country-codes -o ./out # output folder
 ```
 
-### API
+Usage:
+```sh
+get-country-codes -o ./out/iso-3166.csv
+```
 
-#### getTable
+## API
+
+### getTable
 
 Gets the country codes table from the ISO website.
 
