@@ -1,6 +1,6 @@
 # ISO-3166 fetcher
 
-Fetches ISO 3166 country codes from ISO website and outputs to a CSV file.
+Fetches ISO 3166 country codes from [the ISO website](https://www.iso.org/obp/ui/#search) and writes to a CSV file.
 
 ```sh
 pnpm add --global iso-3166-fetcher
