@@ -1,6 +1,6 @@
 {
   "name": "get-country-codes",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Fetches ISO 3166-1 country codes from https://www.iso.org/obp/ui/#search",
   "main": "index.js",
   "scripts": {
