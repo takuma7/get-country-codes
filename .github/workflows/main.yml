@@ -45,7 +45,7 @@ jobs:
         run: pnpm link .
         
       - name: Get country code
-        run: pnpm get-country-codes -o ./out/iso-3166.csv
+        run: pnpm start -o ./out/iso-3166.csv
         
       - name: Push CSV file
         uses: dmnemec/copy_file_to_another_repo_action@main
