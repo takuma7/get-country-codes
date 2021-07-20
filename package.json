@@ -6,7 +6,9 @@
   "scripts": {
     "start": "NODE_OPTIONS='--trace-warnings --trace-deprecation --abort-on-uncaught-exception' ts-node src/cli.ts",
     "build": "tsc --project ./tsconfig.json",
-    "lint": "eslint"
+    "lint": "eslint --ext .js,.ts .",
+    "lint:fix": "pnpm lint --fix",
+    "prepare": "pnpm lint && pnpm build"
   },
   "repository": {
     "type": "git",
