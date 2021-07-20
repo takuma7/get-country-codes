@@ -31,4 +31,7 @@ const argv = yargs(hideBin(process.argv))
       return `${text}... Wrote to ${result}`
     },
   })
-})()
+})().catch((e) => {
+  console.error(e)
+  process.exit(1)
+})

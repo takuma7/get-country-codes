@@ -4,7 +4,7 @@
   "description": "Fetches ISO 3166 country codes from https://www.iso.org/obp/ui/#search",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_OPTIONS='--trace-warnings --trace-deprecation --abort-on-uncaught-exception' ts-node src/cli.ts",
+    "start": "NODE_OPTIONS='--trace-warnings --trace-deprecation' ts-node src/cli.ts",
     "build": "tsc --project ./tsconfig.json",
     "lint": "eslint --ext .js,.ts .",
     "lint:fix": "pnpm lint --fix",

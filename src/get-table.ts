@@ -76,9 +76,6 @@ export const getTable = async () => {
       }
     )
     return { headers, rows }
-  } catch (error) {
-    console.error(error)
-    throw error
   } finally {
     browser.close()
   }
