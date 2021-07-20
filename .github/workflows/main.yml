@@ -42,15 +42,15 @@ jobs:
           run_install: true
           
       - name: Get country code
-        run: pnpm start -- -o ./out/iso-3166.csv
+        run: pnpm start -- -o ./out/iso-3166-1.csv
         
       - name: Push CSV file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_file: 'out/iso-3166.csv'
-          destination_repo: 'takuma7/iso-3166-csv'
+          source_file: 'out/iso-3166-1.csv'
+          destination_repo: 'takuma7/iso-3166-1-csv'
           user_email: '210597+takuma7@users.noreply.github.com'
           user_name: 'takuma7'
-          commit_message: 'Update iso-3166.csv'
+          commit_message: 'Update iso-3166-1.csv'
