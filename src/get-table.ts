@@ -14,7 +14,13 @@ export const getTable = async () => {
         await p.goto('https://www.iso.org/obp/ui/#search', {
           waitUntil: 'networkidle2',
         })
-        await p.waitForSelector('#gwt-uid-12', { visible: true })
+        await p.waitForFunction(
+          () =>
+            Array.from(document.querySelectorAll('label')).some((label) =>
+              label.textContent?.includes('Country codes')
+            ),
+          { timeout: 60000 }
+        )
         return p
       })()
     )
@@ -23,7 +29,19 @@ export const getTable = async () => {
       'Navigate to the country codes page',
       (async () => {
         // Select "Country codes"
-        await page.click('#gwt-uid-12')
+        const found = await page.$$eval('label', (labels) => {
+          const label = labels.find((l) =>
+            l.textContent?.includes('Country codes')
+          )
+          if (label instanceof HTMLElement) {
+            label.click()
+            return true
+          }
+          return false
+        })
+        if (!found) {
+          throw new Error('Country codes label not found')
+        }
 
         // Hit the search button
         await page.click('div.go')
