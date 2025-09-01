@@ -13,23 +13,21 @@ export const run = async <T = unknown>(
   try {
     const result = await promise
     spinner.succeed(
-      // eslint-disable-next-line no-nested-ternary
       typeof succeedText === 'undefined'
         ? text
         : typeof succeedText === 'function'
-        ? succeedText({ result, text })
-        : succeedText
+          ? succeedText({ result, text })
+          : succeedText
     )
     return result
   } catch (error) {
     const err = error instanceof Error ? error : new Error(String(error))
     spinner.fail(
-      // eslint-disable-next-line no-nested-ternary
       typeof failText === 'undefined'
         ? text
         : typeof failText === 'function'
-        ? failText({ error: err, text })
-        : failText
+          ? failText({ error: err, text })
+          : failText
     )
     throw err
   }
