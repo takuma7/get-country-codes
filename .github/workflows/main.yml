@@ -42,7 +42,7 @@ jobs:
           run_install: true
 
       - name: Install Chromium
-        run: node node_modules/puppeteer/install.js
+        run: node node_modules/puppeteer/install.mjs
 
       - name: Get country code
         run: pnpm start -- -o ./out/iso-3166-1.csv
