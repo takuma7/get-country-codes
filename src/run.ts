@@ -22,14 +22,15 @@ export const run = async <T = unknown>(
     )
     return result
   } catch (error) {
+    const err = error instanceof Error ? error : new Error(String(error))
     spinner.fail(
       // eslint-disable-next-line no-nested-ternary
       typeof failText === 'undefined'
         ? text
         : typeof failText === 'function'
-        ? failText({ error, text })
+        ? failText({ error: err, text })
         : failText
     )
-    throw error
+    throw err
   }
 }
