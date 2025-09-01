@@ -41,7 +41,7 @@ export const getTable = async () => {
       (async () => {
         await page.select('select.v-select-select', '8')
         // Wait for 5 secs to let the page load
-        await page.waitForTimeout(5000)
+        await new Promise((resolve) => setTimeout(resolve, 5000))
         await page.waitForSelector(TABLE_SELECTOR, {
           visible: true,
         })
@@ -77,6 +77,6 @@ export const getTable = async () => {
     )
     return { headers, rows }
   } finally {
-    browser.close()
+    await browser.close()
   }
 }
