@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer'
+import UserAgent from 'user-agents'
 
 import { run } from './run'
 
@@ -11,22 +12,33 @@ export const getTable = async () => {
       defaultViewport: { width: 1200, height: 1000 },
     })
   )
+
+  process.on('SIGINT', async () => {
+    console.log('\nCtrl+C detected. Closing browser...')
+    if (browser) {
+      await browser.close()
+    }
+    process.exit()
+  })
+
   try {
     const page = await run(
       'Load page',
       (async () => {
         const p = await browser.newPage()
+        // setting UA to bypass "Verify you are human by completing the action below."
+        p.setUserAgent(new UserAgent().random().toString())
         await p.goto('https://www.iso.org/obp/ui/#search', {
           waitUntil: 'networkidle2',
         })
-        await p.waitForFunction(
-          () =>
-            Array.from(document.querySelectorAll('label')).some((label) =>
-              label.textContent?.includes('Country codes')
-            ),
-          { timeout: 60000 }
-        )
         return p
+      })()
+    )
+
+    await run(
+      'Wait for the country codes radio button to appear',
+      (async () => {
+        await page.waitForSelector('#gwt-uid-12')
       })()
     )
 
@@ -34,19 +46,7 @@ export const getTable = async () => {
       'Navigate to the country codes page',
       (async () => {
         // Select "Country codes"
-        const found = await page.$$eval('label', (labels) => {
-          const label = labels.find((l) =>
-            l.textContent?.includes('Country codes')
-          )
-          if (label instanceof HTMLElement) {
-            label.click()
-            return true
-          }
-          return false
-        })
-        if (!found) {
-          throw new Error('Country codes label not found')
-        }
+        await page.click('#gwt-uid-12')
 
         // Hit the search button
         await page.click('div.go')
