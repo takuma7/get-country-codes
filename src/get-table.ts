@@ -5,7 +5,12 @@ import { run } from './run'
 const TABLE_SELECTOR = 'div.v-grid-tablewrapper table'
 
 export const getTable = async () => {
-  const browser = await run('Launch browser', puppeteer.launch())
+  const browser = await run(
+    'Launch browser',
+    puppeteer.launch({
+      defaultViewport: { width: 1200, height: 1000 },
+    })
+  )
   try {
     const page = await run(
       'Load page',
@@ -46,9 +51,7 @@ export const getTable = async () => {
         // Hit the search button
         await page.click('div.go')
 
-        await page.waitForSelector(TABLE_SELECTOR, {
-          visible: true,
-        })
+        await page.waitForSelector(TABLE_SELECTOR)
       })()
     )
 
@@ -60,9 +63,7 @@ export const getTable = async () => {
         await page.select('select.v-select-select', '8')
         // Wait for 5 secs to let the page load
         await new Promise((resolve) => setTimeout(resolve, 5000))
-        await page.waitForSelector(TABLE_SELECTOR, {
-          visible: true,
-        })
+        await page.waitForSelector(TABLE_SELECTOR)
       })()
     )
 
