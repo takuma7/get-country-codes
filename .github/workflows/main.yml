@@ -45,7 +45,7 @@ jobs:
         run: node node_modules/puppeteer/install.mjs
 
       - name: Get country code
-        run: pnpm start -- -o ./out/iso-3166-1.csv
+        run: pnpm start -o ./out/iso-3166-1.csv
         
       - name: Push CSV file
         uses: dmnemec/copy_file_to_another_repo_action@main
