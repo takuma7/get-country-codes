@@ -19,7 +19,7 @@ importers:
         version: 24.18.0(typescript@5.9.2)
       user-agents:
         specifier: ^1.1.650
-        version: 1.1.650
+        version: 1.1.667
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
@@ -1667,8 +1667,8 @@ packages:
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
-  user-agents@1.1.650:
-    resolution: {integrity: sha512-s1DZODdWZXPdQU57iYhScdY/v9JA5fVGo0cHGzHxlhIjxGr4OdKiH1iJ8Y4/rupW4Wccrqd9L5D8DoFVcbdHSQ==}
+  user-agents@1.1.667:
+    resolution: {integrity: sha512-q7E3wrOoAcFhOndJF8VCnKuZdiS2lgV9U6DYsrsKPuslX3noI5cWuEOlk0ZGKRbDAlXLR7UoWEEHCIK71+HjrQ==}
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
@@ -2500,7 +2500,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.32.0)(eslint@9.34.0))(eslint@9.34.0):
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4)(eslint@9.34.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -2522,7 +2522,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.34.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4(eslint-plugin-import@2.32.0)(eslint@9.34.0))(eslint@9.34.0)
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.4.4)(eslint@9.34.0)
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -3560,7 +3560,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  user-agents@1.1.650:
+  user-agents@1.1.667:
     dependencies:
       lodash.clonedeep: 4.5.0
 
